@@ -49,7 +49,7 @@ public class Scr_Student : MonoBehaviour
         TexteMagieC.text = prixMagieCLv1.ToString();
         TexteMagieD.text = prixMagieDLv1.ToString();
         pos = this.transform.position;
-        pos1 = transform.position;
+       
         Scr_StudentStatic = this;
     }
 
@@ -145,7 +145,7 @@ public class Scr_Student : MonoBehaviour
             if (Scr_XP.Scr_XPStatic.xp >= prixMagieALv1)
             {
                 Scr_XP.Scr_XPStatic.xp = Scr_XP.Scr_XPStatic.xp - prixMagieALv1;
-                Instantiate(fireStudent, pos1, Quaternion.identity);
+                Instantiate(fireStudent, pos, Quaternion.identity);
                 SwitchCanvasApparition();
                 A_btn_confirm.SetActive(false);
                 
@@ -163,7 +163,7 @@ public class Scr_Student : MonoBehaviour
             if (Scr_XP.Scr_XPStatic.xp >= prixMagieBLv1)
             {
                 Scr_XP.Scr_XPStatic.xp = Scr_XP.Scr_XPStatic.xp - prixMagieBLv1;
-                Instantiate(fireStudent, pos1, Quaternion.identity);
+                Instantiate(poisonStudent, pos, Quaternion.identity);
                 SwitchCanvasApparition();
                 B_btn_confirm.SetActive(false);
 
@@ -181,7 +181,7 @@ public class Scr_Student : MonoBehaviour
             if (Scr_XP.Scr_XPStatic.xp >= prixMagieCLv1)
             {
                 Scr_XP.Scr_XPStatic.xp = Scr_XP.Scr_XPStatic.xp - prixMagieCLv1;
-                Instantiate(fireStudent, pos1, Quaternion.identity);
+                Instantiate(explosionStudent, pos, Quaternion.identity);
                 SwitchCanvasApparition();
                 C_btn_confirm.SetActive(false);
 
@@ -199,7 +199,7 @@ public class Scr_Student : MonoBehaviour
             if (Scr_XP.Scr_XPStatic.xp >= prixMagieDLv1)
             {
                 Scr_XP.Scr_XPStatic.xp = Scr_XP.Scr_XPStatic.xp - prixMagieDLv1;
-                Instantiate(fireStudent, pos1, Quaternion.identity);
+                Instantiate(invocationStudent, pos, Quaternion.identity);
                 SwitchCanvasApparition();
                 D_btn_confirm.SetActive(false);
 
