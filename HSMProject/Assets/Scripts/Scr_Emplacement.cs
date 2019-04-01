@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class Scr_Emplacement : MonoBehaviour
 {
-
+    public static Scr_Emplacement Scr_Emplacement_static;
     public static Vector3 positionnement;
+    public  int fire = 0;
+    public  int alchimie = 0;
+    public  int explosion = 0;
+    public  int invocation = 0;
 
     
     void Start()
     {
-        
+        Scr_Emplacement_static = this;
     }
 
     void Update()
