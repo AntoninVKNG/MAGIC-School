@@ -49,7 +49,7 @@ public class Scr_Student : MonoBehaviour
         TexteMagieC.text = prixMagieCLv1.ToString();
         TexteMagieD.text = prixMagieDLv1.ToString();
         pos = this.transform.position;
-        pos1 = transform.position;
+       
         Scr_StudentStatic = this;
     }
 
@@ -117,7 +117,7 @@ public class Scr_Student : MonoBehaviour
 
     public void SwitchCanvasApparition()
     {
-        if (Input.GetMouseButtonUp(0) && Canvas.activeSelf == true)
+        if (Input.GetMouseButtonUp(0) && Canvas.activeSelf == true )
         {
             Debug.Log("Clic");
             Canvas.SetActive(false);//Désaffiche le canvas
@@ -125,7 +125,7 @@ public class Scr_Student : MonoBehaviour
 
 
         }
-        else if (Input.GetMouseButtonUp(0) && Canvas.activeSelf == false)
+        else if (Input.GetMouseButtonUp(0) && Canvas.activeSelf == false )
         {
             Debug.Log("active");
             Canvas.SetActive(true); //Affiche le canvas d'amélioration
@@ -145,7 +145,8 @@ public class Scr_Student : MonoBehaviour
             if (Scr_XP.Scr_XPStatic.xp >= prixMagieALv1)
             {
                 Scr_XP.Scr_XPStatic.xp = Scr_XP.Scr_XPStatic.xp - prixMagieALv1;
-                Instantiate(fireStudent, pos1, Quaternion.identity);
+                Instantiate(fireStudent, pos, Quaternion.identity);
+                Scr_Emplacement.Scr_Emplacement_static.fire = 1;
                 SwitchCanvasApparition();
                 A_btn_confirm.SetActive(false);
                 
@@ -163,10 +164,11 @@ public class Scr_Student : MonoBehaviour
             if (Scr_XP.Scr_XPStatic.xp >= prixMagieBLv1)
             {
                 Scr_XP.Scr_XPStatic.xp = Scr_XP.Scr_XPStatic.xp - prixMagieBLv1;
-                Instantiate(fireStudent, pos1, Quaternion.identity);
+                Instantiate(poisonStudent, pos, Quaternion.identity);
+                Scr_Emplacement.Scr_Emplacement_static.alchimie = 1;
                 SwitchCanvasApparition();
                 B_btn_confirm.SetActive(false);
-
+               
             }
         }
         else // si le bouton valider est désactivé
@@ -181,10 +183,11 @@ public class Scr_Student : MonoBehaviour
             if (Scr_XP.Scr_XPStatic.xp >= prixMagieCLv1)
             {
                 Scr_XP.Scr_XPStatic.xp = Scr_XP.Scr_XPStatic.xp - prixMagieCLv1;
-                Instantiate(fireStudent, pos1, Quaternion.identity);
+                Instantiate(explosionStudent, pos, Quaternion.identity);
+                Scr_Emplacement.Scr_Emplacement_static.explosion = 1;
                 SwitchCanvasApparition();
                 C_btn_confirm.SetActive(false);
-
+                
             }
         }
         else // si le bouton valider est désactivé
@@ -199,10 +202,11 @@ public class Scr_Student : MonoBehaviour
             if (Scr_XP.Scr_XPStatic.xp >= prixMagieDLv1)
             {
                 Scr_XP.Scr_XPStatic.xp = Scr_XP.Scr_XPStatic.xp - prixMagieDLv1;
-                Instantiate(fireStudent, pos1, Quaternion.identity);
+                Instantiate(invocationStudent, pos, Quaternion.identity);
+                Scr_Emplacement.Scr_Emplacement_static.invocation = 1;
                 SwitchCanvasApparition();
                 D_btn_confirm.SetActive(false);
-
+               
             }
         }
         else // si le bouton valider est désactivé
