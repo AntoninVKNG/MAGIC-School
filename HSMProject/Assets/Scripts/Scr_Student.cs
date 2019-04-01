@@ -117,7 +117,7 @@ public class Scr_Student : MonoBehaviour
 
     public void SwitchCanvasApparition()
     {
-        if (Input.GetMouseButtonUp(0) && Canvas.activeSelf == true )
+        if (Input.GetMouseButtonUp(0) && Canvas.activeSelf == true  )
         {
             Debug.Log("Clic");
             Canvas.SetActive(false);//Désaffiche le canvas

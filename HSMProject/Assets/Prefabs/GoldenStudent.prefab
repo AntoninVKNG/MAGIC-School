@@ -28,9 +28,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8299031361406326073}
-  m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 5.5500007, y: -1.2, z: -8.085566}
-  m_LocalScale: {x: 0.50000095, y: 0.50000095, z: 0.5}
+  m_LocalScale: {x: 0.50000143, y: 0.50000143, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -106,16 +106,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da85e4959a5a8384299f00ec43264bbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  studentBalais: {fileID: 8299031361406326073}
+  target: {fileID: 3156871111609113100, guid: 372832df4d4a94c408de6dff31a2e85f, type: 3}
+  studentBalais: {fileID: 3156871111893427201, guid: 372832df4d4a94c408de6dff31a2e85f,
+    type: 3}
   rotationMin: 0
   rotationMax: 0
-  spawnMin: {fileID: 0}
-  spawnMax: {fileID: 0}
+  spawnMin: {fileID: 3156871111264909821, guid: 372832df4d4a94c408de6dff31a2e85f,
+    type: 3}
+  spawnMax: {fileID: 3156871112050693056, guid: 372832df4d4a94c408de6dff31a2e85f,
+    type: 3}
   amplitudeMin: {x: 0, y: 0, z: 0}
   amplitudeMax: {x: 0, y: 0, z: 0}
   positionTemp: {x: 0, y: 0, z: 0}
-  vitesse: 6
+  vitesse: 4
+  spawnEnable: 1
+  tempsMin: 3
+  tempsMax: 5
+  turnSpeed: 500
 --- !u!54 &8299031361406326079
 Rigidbody:
   m_ObjectHideFlags: 0
