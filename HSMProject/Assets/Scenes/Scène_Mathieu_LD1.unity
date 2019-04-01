@@ -3262,30 +3262,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 534669904}
-    - target: {fileID: 828515771, guid: f844e1187db49b84a96a829ef2bb43d0, type: 3}
-      propertyPath: m_havePropertiesChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 828515771, guid: f844e1187db49b84a96a829ef2bb43d0, type: 3}
-      propertyPath: m_isInputParsingRequired
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 865687661, guid: f844e1187db49b84a96a829ef2bb43d0, type: 3}
-      propertyPath: m_havePropertiesChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 865687661, guid: f844e1187db49b84a96a829ef2bb43d0, type: 3}
-      propertyPath: m_isInputParsingRequired
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 806114584, guid: f844e1187db49b84a96a829ef2bb43d0, type: 3}
-      propertyPath: m_havePropertiesChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 806114584, guid: f844e1187db49b84a96a829ef2bb43d0, type: 3}
-      propertyPath: m_isInputParsingRequired
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 644632880, guid: f844e1187db49b84a96a829ef2bb43d0, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -115
@@ -3301,6 +3277,30 @@ PrefabInstance:
     - target: {fileID: 644632881, guid: f844e1187db49b84a96a829ef2bb43d0, type: 3}
       propertyPath: m_margin.w
       value: 29.147633
+      objectReference: {fileID: 0}
+    - target: {fileID: 806114584, guid: f844e1187db49b84a96a829ef2bb43d0, type: 3}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 806114584, guid: f844e1187db49b84a96a829ef2bb43d0, type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 828515771, guid: f844e1187db49b84a96a829ef2bb43d0, type: 3}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 828515771, guid: f844e1187db49b84a96a829ef2bb43d0, type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 865687661, guid: f844e1187db49b84a96a829ef2bb43d0, type: 3}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 865687661, guid: f844e1187db49b84a96a829ef2bb43d0, type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f844e1187db49b84a96a829ef2bb43d0, type: 3}
@@ -9452,27 +9452,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   multiplicateur_click: 1
+  click_value: 0.25
   multiplicateur_base: 1
-  multiplicateurA: 1
-  multiplicateurB: 1
-  multiplicateurC: 1
-  multiplicateurD: 1
   fps: 0
   xp_text: {fileID: 3156871111444755712}
-  xpPerSeconds_text: {fileID: 3156871110955504436}
+  xpPerSeconds: {fileID: 3156871110955504436}
   fpsText: {fileID: 3156871110396189680}
-  xpPerSecondsRA: {fileID: 3156871111486763178}
-  xpPerSecondsRB: {fileID: 3156871110698727470}
-  xpPerSecondsRC: {fileID: 3156871111433023403}
-  xpPerSecondsRD: {fileID: 3156871112234384936}
-  xpRA: 0
-  xpRB: 0
-  xpRC: 0
-  xpRD: 0
-  progressBarRA: {fileID: 3156871110875667867}
-  progressBarRB: {fileID: 3156871110932128158}
-  progressBarRC: {fileID: 3156871111434343635}
-  progressBarRD: {fileID: 3156871110326371289}
+  xp: 0
+  progressBar: {fileID: 1070273941}
   progressWheelA: {fileID: 3156871110723481256}
   progressWheelB: {fileID: 3156871111917111887}
   progressWheelC: {fileID: 3156871111842341760}
