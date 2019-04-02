@@ -6,38 +6,25 @@ using UnityEngine.UI;
 
 public class Scr_Clicker : MonoBehaviour
 {
-    [Header ("Multiplicateurs")]
+    [Header("Multiplicateurs")]
     public static Scr_Clicker Scr_ClickerStatic;
-    public float multiplicateur_click = 1;
-    public float multiplicateur_base = 1;
-    [Header("Multiplicateurs des salles")]
-    public float multiplicateurA = 1;
-    public float multiplicateurB = 1;
-    public float multiplicateurC = 1;
-    public float multiplicateurD = 1;
+    public float multiplicateur_click;
+    public float click_value;
+    public float multiplicateur_base;
+    public float alchimistes;
+    public float multiplicateur_alchimistes;
     [Header("FPS")]
-    private float fps2;
+    
     public float fps;
     [Header("Xp par secondes")]
     public Text xp_text;
-    private float xpPerSecondsTotal;
-    public Text xpPerSeconds_text;
+    public Text xpPerSeconds;
     public Text fpsText;
     private float precision = 100;
-    public Text xpPerSecondsRA;
-    public Text xpPerSecondsRB;
-    public Text xpPerSecondsRC;
-    public Text xpPerSecondsRD;
     [Header("Taux de farm des salles")]
-    public float xpRA;
-    public float xpRB;
-    public float xpRC;
-    public float xpRD;
+    public float xp;
     [Header("Barres de progression des salles")]
-    public Image progressBarRA;
-    public Image progressBarRB;
-    public Image progressBarRC;
-    public Image progressBarRD;
+    public Image progressBar;
     [Header("Roues de progression des pouvoirs")]
     public Image progressWheelA;
     public Image progressWheelB;
@@ -63,6 +50,7 @@ public class Scr_Clicker : MonoBehaviour
     public Color SelectDuBouttonPouvoir;
     [Header("Particules")]
     public ParticleSystem plusXeffect;
+    public ParticleSystem manaBurst;
     public GameObject powerActive_A;
     public GameObject powerActive_B;
     public GameObject powerActive_C;
@@ -74,23 +62,12 @@ public class Scr_Clicker : MonoBehaviour
     private void Awake()
     {
         Scr_ClickerStatic = this;
-        progressBarRA.fillAmount = xpRA * 10;
-        xpPerSecondsRA.text = (multiplicateur_base * multiplicateurA / 10).ToString("0" + ".##" + " xp/s");
-        xpPerSecondsRB.text = (multiplicateur_base * multiplicateurB / 10).ToString("0" + ".##" + " xp/s");
-        xpPerSecondsRC.text = (multiplicateur_base * multiplicateurC / 10).ToString("0" + ".##" + " xp/s");
-        xpPerSecondsRD.text = (multiplicateur_base * multiplicateurD / 10).ToString("0" + ".##" + " xp/s");
-        xpPerSecondsTotal = (multiplicateur_base * multiplicateurA / 10) + (multiplicateur_base * multiplicateurB / 10) + (multiplicateur_base * multiplicateurC / 10) + (multiplicateur_base * multiplicateurD / 10);
-        xpPerSeconds_text.text = xpPerSecondsTotal.ToString("0" + ".##" + " Global XP/s");
-
+        xpPerSeconds.text = (multiplicateur_base / 10).ToString("0" + ".##" + " xp/s");
     }
 
 
     void Start()
     {
-        StartCoroutine("FarmingRA");
-        StartCoroutine("FarmingRB");
-        StartCoroutine("FarmingRC");
-        StartCoroutine("FarmingRD");
         StartCoroutine("CooldownPA");
         StartCoroutine("CooldownPB");
         StartCoroutine("CooldownPC");
@@ -107,26 +84,77 @@ public class Scr_Clicker : MonoBehaviour
 
     private void OnTimedEvent(object source, ElapsedEventArgs e)
     {
-        xpRB = (5 / 3000f * multiplicateur_base * multiplicateurB) + xpRB;
+        Debug.Log("timeur");
 
+        xp += multiplicateur_base * multiplicateur_alchimistes *  0.01f; //le total général d'1 xp par seconde est incrémenté.
+        Scr_XP.Scr_XPStatic.xp += multiplicateur_base * multiplicateur_alchimistes * 0.01f;
+        if (xp >= 1f)
+        {
+            xp = 0;
+        }
     }
 
     void Update()
     {
-
-
-
         deltaTime += (Time.deltaTime - deltaTime) * 0.1f;
         fps = 1.0f / deltaTime;
         fpsText.text = Mathf.Ceil(fps).ToString();
 
+        progressBar.fillAmount = xp;
+        xp_text.text = Scr_XP.Scr_XPStatic.xp.ToString(".#" + "0"); //le texte général est modifié
+        xpPerSeconds.text = (multiplicateur_base * multiplicateur_alchimistes).ToString("0" + ".##" + " xp/s");
 
-        
-
-
+        multiplicateur_alchimistes = 1 + (alchimistes / 10);
 
     }
     
+    public void ClickXP()
+    {
+      
+            plusXtext.text = (multiplicateur_click * click_value).ToString("+0" + ".#" + "0");
+            Scr_XP.Scr_XPStatic.xp += (click_value * multiplicateur_click);
+            ParticleSystem clone = (ParticleSystem)Instantiate(plusXeffect, plusXeffect.transform.position, plusXeffect.transform.rotation);
+            ParticleSystem clone2 = (ParticleSystem)Instantiate(manaBurst, manaBurst.transform.position, manaBurst.transform.rotation);
+            Destroy(clone.gameObject, 1);
+            xp += multiplicateur_click * click_value;
+            Scr_XP.Scr_XPStatic.xp = Mathf.Floor(Scr_XP.Scr_XPStatic.xp * precision + 0.5f) / precision;
+            Debug.Log(Scr_XP.Scr_XPStatic.xp);
+        
+    }
+
+    public void BoostXpGoldenStudent()
+    {
+        StartCoroutine("BoostXpGoldStudent");
+    }
+
+    IEnumerator BoostXpGoldStudent()
+    {
+        multiplicateur_base = multiplicateur_base * 5;
+        multiplicateur_click = multiplicateur_click * 5;
+        yield return new WaitForSecondsRealtime(10f);
+        multiplicateur_base = multiplicateur_base / 5;
+        multiplicateur_click = multiplicateur_click / 5;
+    }
+
+
+    public void RoomA()
+    {
+        Debug.Log("Click RoomA");
+    }
+    public void RoomB()
+    {
+        Debug.Log("Click RoomB");
+    }
+    public void RoomC()
+    {
+        Debug.Log("Click RoomC");
+    }
+    public void RoomD()
+    {
+        Debug.Log("Click RoomD");
+    }
+
+
     public void PowerA()
     {
         if (powerA_active == true)
@@ -135,22 +163,18 @@ public class Scr_Clicker : MonoBehaviour
             {
                 powerActive_A.SetActive(false);
             }
-            //ColorBlock cb = powA_btn.colors;
-            //cb.pressedColor = SelectDuBouttonPouvoir;
-            //powA_btn.colors.normalColor = cb;
-            Debug.Log("POWEEERRRRA");
         }
-        
+
     }
 
     IEnumerator CooldownPA()
     {
-        
+
         if (powerA < cooldownPowerA)
         {
-            
+
             powerA = powerA + fréquenceVisuelleDuRechargement;
-            progressWheelA.fillAmount = 1- powerA / cooldownPowerA;
+            progressWheelA.fillAmount = 1 - powerA / cooldownPowerA;
             yield return new WaitForSecondsRealtime(fréquenceVisuelleDuRechargement);
             StartCoroutine("CooldownPA");
             if (powA_btn.interactable == true)
@@ -170,10 +194,10 @@ public class Scr_Clicker : MonoBehaviour
                     powerActive_A.SetActive(true);
                 }
             }
-            
-            
+
+
         }
-        
+
     }
     IEnumerator CooldownPB()
     {
@@ -272,119 +296,5 @@ public class Scr_Clicker : MonoBehaviour
 
     }
 
-    IEnumerator FarmingRA()
-    {
-        if (xpRA >= 0.1f)
-        {
-            xpRA = 0;
-            
-        }
-        yield return new WaitForSeconds(0.01f); //se fait toutes les 0.01 secondes
-        progressBarRA.fillAmount = xpRA * 10 / 1;
-        xpRA = (5 / 3000f * multiplicateur_base * multiplicateurA) + xpRA; //le total général d'1 xp par seconde est incrémenté.
-        Scr_XP.Scr_XPStatic.xp = (5 / 3000f * multiplicateur_base * multiplicateurA) + Scr_XP.Scr_XPStatic.xp;
-        xp_text.text = Scr_XP.Scr_XPStatic.xp.ToString(".#" + "0"); //le texte général est modifié
-
-        StartCoroutine("FarmingRA"); //recommence 
-    }
-
-    IEnumerator FarmingRB()
-    {
-        if (xpRB >= 0.1f) //Restart de la barre quand elle est remplie à 100%
-        {
-            xpRB = 0;
-            
-        }
-        yield return new WaitForSeconds(0.01f); //se fait toutes les 0.01 secondes
-        progressBarRB.fillAmount = xpRB * 10 / 1;
-        xpRB = (5 / 3000f * multiplicateur_base * multiplicateurB) + xpRB; //le total général d'1 xp par seconde est incrémenté.
-        Scr_XP.Scr_XPStatic.xp = (5 / 3000f * multiplicateur_base * multiplicateurB) + Scr_XP.Scr_XPStatic.xp;
-        xp_text.text = Scr_XP.Scr_XPStatic.xp.ToString(".#" + "0"); //le texte général est modifié
-        StartCoroutine("FarmingRB"); //recommence 
-    }
-    IEnumerator FarmingRC()
-    {
-        if (xpRC >= 0.1f)
-        {
-            xpRC = 0;
-            
-        }
-        yield return new WaitForSeconds(0.01f); //se fait toutes les 0.01 secondes
-        progressBarRC.fillAmount = xpRC * 10 / 1;
-        xpRC = (5 / 3000f * multiplicateur_base * multiplicateurC) + xpRC; //le total général d'1 xp par seconde est incrémenté.
-        Scr_XP.Scr_XPStatic.xp = (5 / 3000f * multiplicateur_base * multiplicateurC) + Scr_XP.Scr_XPStatic.xp;
-        xp_text.text = Scr_XP.Scr_XPStatic.xp.ToString(".#" + "0"); //le texte général est modifié
-        StartCoroutine("FarmingRC"); //recommence 
-    }
-    IEnumerator FarmingRD()
-    {
-        if (xpRD >= 0.1f)
-        {
-            xpRD = 0;
-            
-        }
-        yield return new WaitForSeconds(0.01f); //se fait toutes les 0.01 secondes
-        progressBarRD.fillAmount = xpRD * 10 / 1;
-        xpRD = (5 / 3000f * multiplicateur_base * multiplicateurD) + xpRD; //le total général d'1 xp par seconde est incrémenté.
-        Scr_XP.Scr_XPStatic.xp = (5 / 3000f * multiplicateur_base * multiplicateurD) + Scr_XP.Scr_XPStatic.xp;
-        xp_text.text = Scr_XP.Scr_XPStatic.xp.ToString(".#" + "0"); //le texte général est modifié
-        StartCoroutine("FarmingRD"); //recommence 
-    }
-    public void OnMouseDown()
-    {
-        xpPerSecondsRA.text = (multiplicateur_base * multiplicateurA / 10).ToString("0" + ".##" + " xp/s");
-        xpPerSecondsRB.text = (multiplicateur_base * multiplicateurB / 10).ToString("0" + ".##" + " xp/s");
-        xpPerSecondsRC.text = (multiplicateur_base * multiplicateurC / 10).ToString("0" + ".##" + " xp/s");
-        xpPerSecondsRD.text = (multiplicateur_base * multiplicateurD / 10).ToString("0" + ".##" + " xp/s");
-        xpPerSecondsTotal = (multiplicateur_base * multiplicateurA / 10) + (multiplicateur_base * multiplicateurB / 10) + (multiplicateur_base * multiplicateurC / 10) + (multiplicateur_base * multiplicateurD / 10);
-        xpPerSeconds_text.text = xpPerSecondsTotal.ToString("0" + ".##" + " Global XP/s");
-    }
-    public void ClickXP()
-    {
-        Debug.Log("clic xp");
-        plusXtext.text = (multiplicateur_click / 10).ToString("+0" + ".#" + "0");
-        Scr_XP.Scr_XPStatic.xp = (0.10f * multiplicateur_click) + Scr_XP.Scr_XPStatic.xp;
-        ParticleSystem clone = (ParticleSystem)Instantiate(plusXeffect, plusXeffect.transform.position, plusXeffect.transform.rotation);
-        Destroy(clone.gameObject, 1);
-
-
-        Scr_XP.Scr_XPStatic.xp = Mathf.Floor(Scr_XP.Scr_XPStatic.xp * precision + 0.5f) / precision;
-        //xp_text.text = Scr_XP.Scr_XPStatic.xp.ToString(".##");
-        Debug.Log(Scr_XP.Scr_XPStatic.xp);
-
-
-
-
-    }
-    public void BoostXpGoldenStudent()
-    {
-        StartCoroutine("BoostXpGoldStudent");
-    }
-    IEnumerator BoostXpGoldStudent()
-    {
-        multiplicateur_base = multiplicateur_base * 5;
-        multiplicateur_click = multiplicateur_click * 5;
-        yield return new WaitForSecondsRealtime(10f);
-        multiplicateur_base = multiplicateur_base / 5;
-        multiplicateur_click = multiplicateur_click / 5;
-    }
-
-
-    public void RoomA()
-    {
-        Debug.Log("Click RoomA");
-    }
-    public void RoomB()
-    {
-        Debug.Log("Click RoomB");
-    }
-    public void RoomC()
-    {
-        Debug.Log("Click RoomC");
-    }
-    public void RoomD()
-    {
-        Debug.Log("Click RoomD");
-    }
-    
 }
+    

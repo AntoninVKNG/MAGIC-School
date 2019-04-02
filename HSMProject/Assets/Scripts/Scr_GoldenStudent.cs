@@ -17,6 +17,7 @@ public class Scr_GoldenStudent : MonoBehaviour
     public bool spawnEnable = true;
     public int tempsMin;
     public int tempsMax;
+  
 
     void Start()
     {
@@ -37,11 +38,12 @@ public class Scr_GoldenStudent : MonoBehaviour
         {
             Vector3 dir = target.position - transform.position;
             transform.Translate(dir.normalized * vitesse * Time.deltaTime, Space.World);
+           
         }
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name=="Target")
+        if (other.gameObject.name == "Target")
         Destroy(gameObject);
     }
     public void OnMouseDown()
