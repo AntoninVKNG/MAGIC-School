@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3698570478745111562}
   m_Layer: 0
   m_Name: 'Emplacement '
-  m_TagString: Untagged
+  m_TagString: 0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 1245872400}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.75, y: -0.7376952, z: -4.65}
-  m_LocalScale: {x: 0.4483334, y: 0.07461777, z: 0.44173717}
+  m_LocalScale: {x: 0.44833, y: 0.07462, z: 0.44173998}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -90,8 +90,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.6729349, z: 1}
-  m_Center: {x: 0, y: 0.33646783, z: 0}
+  m_Size: {x: 2.0389347, y: 33.555035, z: 1.5101355}
+  m_Center: {x: -0.039000742, y: 16.277512, z: -0.027082711}
 --- !u!114 &3698570478745111562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104,3 +104,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d9398f2a90cc3f48953d3d389d34ed5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  go_this: {fileID: 0}
+  niveau: 2
