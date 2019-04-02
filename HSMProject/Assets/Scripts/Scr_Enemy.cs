@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ennemy : MonoBehaviour
+public class Scr_Enemy : MonoBehaviour
 {
-    public static ennemy Scr_ennemyStatic;
+    public static Scr_Enemy Scr_Scr_EnemyStatic;
     public float speed = 10f;
     public float health;
     public float currentHealth;
@@ -22,7 +22,7 @@ public class ennemy : MonoBehaviour
     private void Awake()
     {
        
-        Scr_ennemyStatic = this;
+        Scr_Scr_EnemyStatic = this;
     }
 
     private void Start()

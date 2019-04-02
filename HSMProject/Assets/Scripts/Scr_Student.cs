@@ -67,13 +67,15 @@ public class Scr_Student : MonoBehaviour
 
     public static Vector3 pos;
     public Vector3 pos1;
+    public GameObject go_Emplacement;
+
 
     [Header("Prix des Achats")]
     public float prixMagieALv0;
     public float prixMagieBLv0;
     public float prixMagieCLv0;
     public float prixMagieDLv0;
-
+    [Header("Nombres de types de tours")]
     public float alchimistes;
     public float pyromanciens;
     public float mageNoirs;
@@ -114,9 +116,11 @@ public class Scr_Student : MonoBehaviour
 
 
     
-    public void DetectionLevel(Collision other)
+    public void DetectionLevel()
     {
-        if (other.gameObject.tag == "0")
+        Debug.Log("DetectionLevel");
+        
+        if (go_Emplacement.gameObject.tag == "0")
         {
             Debug.Log("<b>Niveau0</b>");
             SwitchCanvasApparition();
@@ -124,7 +128,7 @@ public class Scr_Student : MonoBehaviour
 
         // FireUpgrade 
 
-        else if (other.gameObject.tag == "1") //FireUp1
+        if (go_Emplacement.gameObject.tag == "1") //FireUp1
         {
             Debug.Log("Niveau+1");
             if (canvasFire1.activeSelf == false)
@@ -135,7 +139,7 @@ public class Scr_Student : MonoBehaviour
 
             }
         }
-        if (other.gameObject.tag == "2") //FireUp2
+        if (go_Emplacement.gameObject.tag == "2") //FireUp2
         {
             if (canvasFire2.activeSelf == false)
             {
@@ -144,7 +148,7 @@ public class Scr_Student : MonoBehaviour
 
             }
         }
-        if (other.gameObject.tag == "3") //FireUp3
+        if (go_Emplacement.gameObject.tag == "3") //FireUp3
         {
             if (canvasFire3.activeSelf == false)
             {
@@ -154,7 +158,7 @@ public class Scr_Student : MonoBehaviour
             }
         }
 
-        if (other.gameObject.tag == "4") //FireUp4
+        if (go_Emplacement.gameObject.tag == "4") //FireUp4
         {
             if (canvasFire4.activeSelf == false)
             {
@@ -166,7 +170,7 @@ public class Scr_Student : MonoBehaviour
 
         // AlchimieUpgrade 
 
-        if (other.gameObject.tag == "5") //AlchimieUp1
+        if (go_Emplacement.gameObject.tag == "5") //AlchimieUp1
         {
             if (canvasAlchimie1.activeSelf == false)
             {
@@ -174,7 +178,7 @@ public class Scr_Student : MonoBehaviour
                 TexteMagieA.text = (prixMagieBLv0 * (alchimistes / 10 + 1)).ToString();
             }
         }
-        if (other.gameObject.tag == "6") //AlchimieUp2
+        if (go_Emplacement.gameObject.tag == "6") //AlchimieUp2
         {
             if (canvasAlchimie2.activeSelf == false)
             {
@@ -182,7 +186,7 @@ public class Scr_Student : MonoBehaviour
                 TexteMagieA.text = (prixMagieBLv0 * (alchimistes / 10 + 1)).ToString();
             }
         }
-        if (other.gameObject.tag == "7") //AlchimieUp3
+        if (go_Emplacement.gameObject.tag == "7") //AlchimieUp3
         {
             if (canvasAlchimie3.activeSelf == false)
             {
@@ -191,7 +195,7 @@ public class Scr_Student : MonoBehaviour
             }
         }
 
-        if (other.gameObject.tag == "8") //AlchimieUp4
+        if (go_Emplacement.gameObject.tag == "8") //AlchimieUp4
         {
             if (canvasAlchimie4.activeSelf == false)
             {
@@ -202,7 +206,7 @@ public class Scr_Student : MonoBehaviour
 
         // MagieNoirUpgrade 
 
-        if (other.gameObject.tag == "9") //MagieNoirUp1
+        if (go_Emplacement.gameObject.tag == "9") //MagieNoirUp1
         {
             if (canvasMagieNoir1.activeSelf == false)
             {
@@ -210,7 +214,7 @@ public class Scr_Student : MonoBehaviour
                 TexteMagieA.text = (prixMagieCLv0 * (mageNoirs / 10 + 1)).ToString();
             }
         }
-        if (other.gameObject.tag == "10") //MagieNoirUp2
+        if (go_Emplacement.gameObject.tag == "10") //MagieNoirUp2
         {
             if (canvasMagieNoir2.activeSelf == false)
             {
@@ -218,7 +222,7 @@ public class Scr_Student : MonoBehaviour
                 TexteMagieA.text = (prixMagieCLv0 * (mageNoirs / 10 + 1)).ToString();
             }
         }
-        if (other.gameObject.tag == "11") //MagieNoirUp3
+        if (go_Emplacement.gameObject.tag == "11") //MagieNoirUp3
         {
             if (canvasMagieNoir3.activeSelf == false)
             {
@@ -226,7 +230,7 @@ public class Scr_Student : MonoBehaviour
                 TexteMagieA.text = (prixMagieCLv0 * (mageNoirs / 10 + 1)).ToString();
             }
         }
-        if (other.gameObject.tag == "12") //MagieNoirUp4
+        if (go_Emplacement.gameObject.tag == "12") //MagieNoirUp4
         {
             if (canvasMagieNoir4.activeSelf == false)
             {
@@ -237,7 +241,7 @@ public class Scr_Student : MonoBehaviour
 
         //InvocationUpgrade
 
-        if (other.gameObject.tag == "13") //InvocationUp1
+        if (go_Emplacement.gameObject.tag == "13") //InvocationUp1
         {
             if (canvasInvocation1.activeSelf == false)
             {
@@ -245,7 +249,7 @@ public class Scr_Student : MonoBehaviour
                 TexteMagieA.text = (prixMagieDLv0 * (invocateurs / 10 + 1)).ToString();
             }
         }
-        if (other.gameObject.tag == "14") //InvocationUp2
+        if (go_Emplacement.gameObject.tag == "14") //InvocationUp2
         {
             if (canvasInvocation2.activeSelf == false)
             {
@@ -253,7 +257,7 @@ public class Scr_Student : MonoBehaviour
                 TexteMagieA.text = (prixMagieDLv0 * (invocateurs / 10 + 1)).ToString();
             }
         }
-        if (other.gameObject.tag == "15") //InvocationUp3
+        if (go_Emplacement.gameObject.tag == "15") //InvocationUp3
         {
             if (canvasInvocation3.activeSelf == false)
             {
@@ -262,7 +266,7 @@ public class Scr_Student : MonoBehaviour
             }
         }
 
-        if (other.gameObject.tag == "16") //InvocationUp4
+        if (go_Emplacement.gameObject.tag == "16") //InvocationUp4
         {
             if (canvasInvocation4.activeSelf == false)
             {
@@ -551,10 +555,9 @@ public class Scr_Student : MonoBehaviour
             if (Scr_XP.Scr_XPStatic.xp >= prixMagieALv0)
             {
                 Scr_XP.Scr_XPStatic.xp = Scr_XP.Scr_XPStatic.xp - prixMagieALv0;
-                Instantiate(fireStudent, pos, Quaternion.identity).transform.gameObject.tag = "1";
+                Instantiate(fireStudent, pos, Quaternion.identity);
                 //Scr_Emplacement.Scr_Emplacement_static.niveau = 1;
-
-
+                go_Emplacement.transform.gameObject.tag = "1";
                 SwitchCanvasApparition();
                 A_btn_confirm.SetActive(false);
 
@@ -572,8 +575,9 @@ public class Scr_Student : MonoBehaviour
             if (Scr_XP.Scr_XPStatic.xp >= prixMagieBLv0)
             {
                 Scr_XP.Scr_XPStatic.xp = Scr_XP.Scr_XPStatic.xp - prixMagieBLv0;
-                Instantiate(poisonStudent, pos, Quaternion.identity).transform.gameObject.tag = "1";
-                Scr_Emplacement.Scr_Emplacement_static.niveau = 1;
+                Instantiate(poisonStudent, pos, Quaternion.identity);
+                //Scr_Emplacement.Scr_Emplacement_static.niveau = 1;
+                go_Emplacement.transform.gameObject.tag = "5";
                 SwitchCanvasApparition();
                 B_btn_confirm.SetActive(false);
 
@@ -591,8 +595,9 @@ public class Scr_Student : MonoBehaviour
             if (Scr_XP.Scr_XPStatic.xp >= prixMagieCLv0)
             {
                 Scr_XP.Scr_XPStatic.xp = Scr_XP.Scr_XPStatic.xp - prixMagieCLv0;
-                Instantiate(explosionStudent, pos, Quaternion.identity).transform.gameObject.tag = "1"; ;
-                Scr_Emplacement.Scr_Emplacement_static.niveau = 1;
+                Instantiate(explosionStudent, pos, Quaternion.identity);
+                //Scr_Emplacement.Scr_Emplacement_static.niveau = 1;
+                go_Emplacement.transform.gameObject.tag = "9";
                 SwitchCanvasApparition();
                 C_btn_confirm.SetActive(false);
 
@@ -610,8 +615,9 @@ public class Scr_Student : MonoBehaviour
             if (Scr_XP.Scr_XPStatic.xp >= prixMagieDLv0)
             {
                 Scr_XP.Scr_XPStatic.xp = Scr_XP.Scr_XPStatic.xp - prixMagieDLv0;
-                Instantiate(invocationStudent, pos, Quaternion.identity).transform.gameObject.tag = "1"; ;
-                Scr_Emplacement.Scr_Emplacement_static.niveau = 1;
+                Instantiate(invocationStudent, pos, Quaternion.identity) ;
+                //Scr_Emplacement.Scr_Emplacement_static.niveau = 1;
+                go_Emplacement.transform.gameObject.tag = "13";
                 SwitchCanvasApparition();
                 D_btn_confirm.SetActive(false);
 
