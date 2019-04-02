@@ -8,26 +8,26 @@ public class Scr_Bullet : MonoBehaviour
     public float speed = 70f;
     public static int attackDamageMin = 4;
     public static int attackDamageMax = 6;
-<<<<<<< HEAD
+
     //ennemy health;
     GameObject Ennemy;
     
-=======
+
     //Scr_Enemy health;
     GameObject Scr_Enemy;
->>>>>>> master
+
 
 
     private void Awake()
     {
-<<<<<<< HEAD
+
         Ennemy = GameObject.FindGameObjectWithTag("Enemy");
         
         //health = GetComponent<ennemy>();
-=======
+
         Scr_Enemy = GameObject.FindGameObjectWithTag("Enemy");
         //health = GetComponent<Scr_Enemy>();
->>>>>>> master
+
     }
 
     public void Seek (Transform _target)
