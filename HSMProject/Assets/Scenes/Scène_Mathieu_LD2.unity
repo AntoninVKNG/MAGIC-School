@@ -5811,8 +5811,8 @@ MonoBehaviour:
   prixMagieBLv0: 8
   prixMagieCLv0: 9
   prixMagieDLv0: 10
-  alchimistes: 0
-  pyromanciens: 0
+  alchimistes: 2
+  pyromanciens: 2
   mageNoirs: 0
   invocateurs: 0
   TexteMagieA: {fileID: 966478164}

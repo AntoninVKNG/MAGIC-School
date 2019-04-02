@@ -10,11 +10,13 @@ public class Scr_Bullet : MonoBehaviour
     public static int attackDamageMax = 6;
     //ennemy health;
     GameObject Ennemy;
+    
 
 
     private void Awake()
     {
         Ennemy = GameObject.FindGameObjectWithTag("Enemy");
+        
         //health = GetComponent<ennemy>();
     }
 
@@ -34,6 +36,7 @@ public class Scr_Bullet : MonoBehaviour
 
         }
 
+        
         Vector3 dir = target.position - transform.position;
         float distanceThisFrame = speed * Time.deltaTime;
 

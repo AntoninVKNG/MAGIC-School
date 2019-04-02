@@ -928,11 +928,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4870468664307528}
   - component: {fileID: 95403174366203918}
-  - component: {fileID: 114413649524001686}
   - component: {fileID: 1882143211}
   - component: {fileID: 1882143207}
+  - component: {fileID: 8672932150247217357}
   m_Layer: 0
-  m_Name: Turret_MagieC
+  m_Name: Turret_MagieC 3
   m_TagString: 0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -974,28 +974,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114413649524001686
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1541764156944038}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67fb75be21e976e47b62bcc284068b2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  range: 1.1
-  enemyTag: Enemy
-  partToRotate: {fileID: 4870468664307528}
-  turnSpeed: 5
-  fireRate: 0.4
-  bulletPrefab: {fileID: 6281501281106135733, guid: c55489c3cc3762145a7d12e2b7a74bef,
-    type: 3}
-  firePoint: {fileID: 2458595832608695745}
-  timeBetweenAttacks: 0.8
-  enemies: []
 --- !u!54 &1882143211
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1026,6 +1004,28 @@ CapsuleCollider:
   m_Height: 2.9074528
   m_Direction: 1
   m_Center: {x: -0.0039983485, y: 0.6502055, z: 0.32360533}
+--- !u!114 &8672932150247217357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1541764156944038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dedaadcd249d9f428676733a940c9ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  range: 0
+  enemyTag: Ennemy
+  partToRotate: {fileID: 4870468664307528}
+  turnSpeed: 10
+  fireRate: 1
+  bulletPrefab: {fileID: 6281501281106135733, guid: c55489c3cc3762145a7d12e2b7a74bef,
+    type: 3}
+  firePoint: {fileID: 2458595832608695745}
+  timeBetweenAttacks: 0.8
+  enemies: []
 --- !u!1 &1565953632147884
 GameObject:
   m_ObjectHideFlags: 0
