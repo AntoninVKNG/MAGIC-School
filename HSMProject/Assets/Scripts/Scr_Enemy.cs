@@ -70,6 +70,13 @@ public class Scr_Enemy : MonoBehaviour
             TakeDamage(Random.Range(Scr_BulletA.attackDamageMin, Scr_BulletA.attackDamageMax));
             Debug.Log("Absorbe YOU BRO");
         }
+
+        if (other.gameObject.tag == "BulletExplosif")
+        {
+
+            TakeDamage(Random.Range(Scr_BulletMN.attackDamageMin, Scr_BulletMN.attackDamageMax));
+            Debug.Log("You Explode");
+        }
     }
 
     public void TakeDamage(float amount)
