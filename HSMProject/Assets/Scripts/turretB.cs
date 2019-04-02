@@ -6,9 +6,9 @@ using UnityEngine.UI;
 public class turretB : MonoBehaviour {
 
     private Transform target;
-    private ennemy targetEnemy;
+    private Scr_Enemy targetEnemy;
     public float range;
-    public string enemyTag = "Ennemy";
+    public string enemyTag = "Scr_Enemy";
     public Transform partToRotate;
     public float turnSpeed = 10f;
     public float fireRate = 1f;
@@ -97,7 +97,7 @@ public class turretB : MonoBehaviour {
             
             nearestEnemy = other.gameObject;
             target = nearestEnemy.transform;
-            targetEnemy = nearestEnemy.GetComponent<ennemy>();
+            targetEnemy = nearestEnemy.GetComponent<Scr_Enemy>();
 
             Debug.Log("Il tire !");
 
