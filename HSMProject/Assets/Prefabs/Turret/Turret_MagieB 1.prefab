@@ -930,9 +930,9 @@ GameObject:
   - component: {fileID: 95403174366203918}
   - component: {fileID: 1882143211}
   - component: {fileID: 1882143207}
-  - component: {fileID: 1762220319676420265}
+  - component: {fileID: 6558774388176737877}
   m_Layer: 0
-  m_Name: Turret_MagieB
+  m_Name: Turret_MagieB 1
   m_TagString: 0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1004,7 +1004,7 @@ CapsuleCollider:
   m_Height: 3.1494997
   m_Direction: 1
   m_Center: {x: -0.00399826, y: 0.6502056, z: 0.20258285}
---- !u!114 &1762220319676420265
+--- !u!114 &6558774388176737877
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1013,15 +1013,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1541764156944038}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67fb75be21e976e47b62bcc284068b2a, type: 3}
+  m_Script: {fileID: 11500000, guid: 1dedaadcd249d9f428676733a940c9ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 1.1
+  range: 0
   enemyTag: Enemy
   partToRotate: {fileID: 4870468664307528}
-  turnSpeed: 5
-  fireRate: 0.4
-  bulletPrefab: {fileID: 6281501281106135733, guid: c55489c3cc3762145a7d12e2b7a74bef,
+  turnSpeed: 10
+  fireRate: 0.5
+  bulletPrefab: {fileID: 1286861250725854442, guid: bc42e5b76ed35684491d3d00f4ceabdd,
     type: 3}
   firePoint: {fileID: 2458595832608695745}
   timeBetweenAttacks: 0.8

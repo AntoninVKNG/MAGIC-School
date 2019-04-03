@@ -64,11 +64,18 @@ public class Scr_Enemy : MonoBehaviour
             Debug.Log("HIT YOU BRO");
         }
 
+        if (other.gameObject.tag == "Bullet Alchimie")
+        {
+
+            TakeDamage(Random.Range(Scr_BulletA.attackDamageMin, Scr_BulletA.attackDamageMax));
+            Debug.Log("Absorbe YOU BRO");
+        }
+
         if (other.gameObject.tag == "BulletExplosif")
         {
 
-            TakeDamage(Random.Range(Scr_BulletExplosif.attackDamageMin, Scr_BulletExplosif.attackDamageMax));
-            Debug.Log("HIT YOU BRO");
+            TakeDamage(Random.Range(Scr_BulletMN.attackDamageMin, Scr_BulletMN.attackDamageMax));
+            Debug.Log("You Explode");
         }
     }
 
